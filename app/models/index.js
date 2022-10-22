@@ -25,11 +25,16 @@ db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 
 
 // start of added by me
-const alasql = require('alasql');
+const alasql = require("alasql");
 
-const db = new alasql.Database(); db.exec('CREATE TABLE foods (ID int, NAME string, SERVSIZE int, ENERGY int, PROTEIN int, TFAT int, SFAT int, CARB int, SUGAR int, DIFIBER int, SOD int)');
-// ServingSize as SERVSIZE, Total Fat as TFAT, Sat.Fat as SFAT, Dietary Fiber as DIFIBER, Sodium as SOD
+var db = new .Database(); db.exec("CREATE TABLE foods (ID int, NAME string, SIZE int)")/*, ENERGY int, /*PROTEIN int, TFAT int, SFAT int, CARB int, SUGAR int, DIFIBER int, SOD int)')*/;
+
+db = alasql("INSERT INTO foods VALUES (1,'Potato',100),(2,'Hamburger',532)");
+let res = db("SELECT * FROM foods WHERE ID == 1");
+
+console.log(res);
+// ServingSize as SIZE, Total Fat as TFAT, Sat.Fat as SFAT, Dietary Fiber as DIFIBER, Sodium as SOD
 
 // end of added by me
 
-module.exports = db;
+//module.exports = db;
